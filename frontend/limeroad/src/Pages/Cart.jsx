@@ -5,7 +5,7 @@ import "../Components/ProductComponents/CartComponents/cart.css"
 import Bill from '../Components/ProductComponents/CartComponents/Bill';
 export const Cart = () => {
 
-  const product=[
+  const Product=[
     {
       "_id": "64520eb37a2b535d2f820039",
       "image": "https://img3.junaroad.com/uiproducts/15892957/pri_175_p-1547294126.jpg",
@@ -74,13 +74,13 @@ export const Cart = () => {
           }
     ]
     
+    let total=0;
+  for (let el of Product){
+total+=(el.Quantity*el.price)
+  }
+
+
   
-let total;
-for(let i=0 ;i<product.length;i++){
-  total+=product[i].Quantity*product[i].price
-}
-  
-console.log(total)
 
 
   return (
@@ -90,7 +90,7 @@ console.log(total)
     <div className='cart' >
       <div className='products'>
 
-   {product.map((product)=>(    
+   {Product.map((product)=>(    
         <div className='selectedProductCard' key={product._id} >
        <div className='productimage'>
          <img src={product.image} alt='prod' style={{width:"100%"}} />
