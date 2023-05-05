@@ -7,6 +7,9 @@ h1{
     background-color: transparent;
    
 }
+.input:focus{
+    outline: none;
+}
 .required:after { 
     content:"*"; 
     color: red;

@@ -1,0 +1,52 @@
+.carddetails{
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+    text-align: left;
+}
+.required:after { 
+    content:"*"; 
+    color: red;
+}
+
+.cardinput{
+    border: none;
+    border-bottom: 1px solid #CCC;
+    background-color: transparent;
+    width: 100%;
+}
+.cardinput:focus{
+    outline: none;
+}
+.pass{
+    border: none;
+    border-bottom: 1px solid #CCC;
+    background-color: transparent;
+    width: 25%;
+}
+.pass:focus{
+    outline:none
+}
+.amounttopay{
+    background-color: rgb(242, 241, 241);
+    padding: 10px;
+    border-radius: 5px;
+}
+.amount{
+    display: flex;
+    justify-content: space-between;
+    color: rgba(212, 18, 86, 0.984);
+    font-weight: 500;
+}
+.cardbutton{
+    width: 100%;
+    margin: auto;
+    color: white;
+    font-size: 18px;
+    font-weight: 800 ;
+    background-color:rgba(56, 145, 36, 0.909) ;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+}
