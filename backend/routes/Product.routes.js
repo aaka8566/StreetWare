@@ -51,7 +51,7 @@ ProductRouter.post("/create", async (req, res) => {
 ProductRouter.get("/", async (req, res) => {
   const filter = {};
   if (req.query.title) {
-    filter.title = { $eq: req.query.title };
+    filter.title = { $regex: req.query.title, $options: "i" };
   }
   if (req.query.brand) {
     filter.brand = { $eq: req.query.brand };
@@ -104,8 +104,8 @@ ProductRouter.get("/:id", async (req, res) => {
  *                description: Incorrect Request
  */
 
-ProductRouter.get("/price_sort/:s", async (req, res) => {
-  const { s } = req.params;
+ProductRouter.get("/price/price_sort", async (req, res) => {
+  const { s } = req.query;
   try {
     let product;
     if (s === "asc") {
@@ -132,8 +132,8 @@ ProductRouter.get("/price_sort/:s", async (req, res) => {
  *                description: Incorrect Request
  */
 
-ProductRouter.get("/discount/:s", async (req, res) => {
-  const { s } = req.params;
+ProductRouter.get("/price/discount", async (req, res) => {
+  const { s } = req.query;
   try {
     let product;
     if (s === "asc") {
@@ -199,9 +199,10 @@ ProductRouter.delete("/delete/:id", async (req, res) => {
  *            400:
  *                description: Incorrect Request
  */
-ProductRouter.get("/page/:page", async (req, res) => {
+ProductRouter.get("/price/page", async (req, res) => {
+  const { p } = req.query;
   try {
-    const page = Number(req.params.page);
+    const page = Number(p);
     const product = await ProductModel.find()
       .skip((page - 1) * 15)
       .limit(15);

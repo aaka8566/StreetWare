@@ -7,18 +7,18 @@ const cartRouter = express.Router();
  * @swagger
  * tags:
  *  name: cart
- *  description: All the Api routes releated to user
+ *  description: All the Api routes releated to cart
  */
 
 /**
  * @swagger
- * /:
+ * /cart/:
  *   get:
- *       summary: To get all the data of the cart as per the user login
+ *       summary: To add a new product in the cart
  *       tags: [cart]
  *       responses:
  *            200:
- *                description: For creation of Products
+ *                description: For additin of data in cart
  *            400:
  *                description: Incorrect Request
  */
