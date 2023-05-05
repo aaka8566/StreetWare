@@ -1,12 +1,12 @@
 .paymentbody{
     background-color: rgb(242, 241, 241);
-padding: 15px;
+
 }
 
 .paymentsection{
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 85%;
     margin: auto;
 }
 
@@ -14,12 +14,11 @@ padding: 15px;
     width: 45%;
     display: flex;
     flex-direction: column;
-
 }
-.secondpart{
-    width: 50%;
-    margin: auto;
-
+.SecondPart{
+    width: 52%;
+    background-color: white;
+    padding:5px 30px 15px 30px;
 }
 .pinkbanner{
     display :flex;
@@ -28,11 +27,35 @@ padding: 15px;
     padding: 5px;
     border-radius: 10px;
 }
-.smallimage{
+.SmallImage{
     width: 10%;
     border-radius: 50px;
 }
 
 .mode{
+    margin-top: 30px;
     text-align: left;
+    margin-bottom: 20px;
+}
+
+.paymentParts{
+    display: flex;
+    gap:20px
+}
+.paymentPart1{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.paymentPart2{
+    width: 65%;
+}
+.Types{
+    background-color:rgb(242, 241, 241) ;
+    padding: 15px 25px 20px 10px;
+    text-align: left;
+}
+.Types>p{
+    font-size: 12px;
 }

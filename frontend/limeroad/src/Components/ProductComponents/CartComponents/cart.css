@@ -66,7 +66,24 @@ h3{
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     background-color: white;
 }
-
+.net{
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    margin-bottom: 30px;
+}
+.net h2{
+    margin-bottom: 30px;
+}
+.netinput{
+    border: none;
+    border-bottom: 1px solid #CCC;
+    background-color: transparent;
+    width: 100%;
+}
+.netinput:focus{
+    outline:none
+}
 .parts{
     width: 80%;
     margin: auto;
@@ -82,6 +99,7 @@ h3{
     font-size: 20px;
     font-weight: 500;
 }
+
 .buybutton{
     width: 80%;
     margin: auto;
@@ -90,6 +108,19 @@ h3{
     font-size: 25px;
     font-weight: 600;
     background-color:rgba(212, 18, 86, 0.984) ;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+}
+.confirmbutton1{
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 800 ;
+    background-color:rgba(56, 145, 36, 0.909) ;
     text-align: center;
     padding-top: 8px;
     padding-bottom: 8px;

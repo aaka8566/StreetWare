@@ -1,0 +1,17 @@
+import axios from "axios"
+import { EDIT_PRODUCT_SUCCESS, FAILURE, GET_PRODUCT_SUCCESS, REQUEST } from "./CartActionType"
+
+
+export const getcartproduct=(dispatch)=>{
+    dispatch({type:REQUEST})
+    axios.get(`https://worrisome-goat-flip-flops.cyclic.app/cart/`)
+    .then((res)=>dispatch({type:GET_PRODUCT_SUCCESS,payload:res.data}))
+    .catch(()=>dispatch({type:FAILURE}))
+}
+
+export const editData=(data,id)=>(dispatch)=>{
+    dispatch({type:REQUEST})
+    return axios.patch(`https://worrisome-goat-flip-flops.cyclic.app/cart/increase/${id}`,data)
+    .then(()=>dispatch({type:EDIT_PRODUCT_SUCCESS}))
+    .catch(()=>dispatch({type:FAILURE}))
+}
