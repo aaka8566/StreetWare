@@ -9,14 +9,14 @@ let cp=c;
 let arr=[];
 let count=0;
 if(tp<=10){
-  arr.push("Previous")
+  // arr.push("Previous")
   for(let i=1;i<=10;i++){
     arr.push(i);
   }
-  arr.push("Next")
+  // arr.push("Next")
 }
 else{
-  arr.push("Previous")
+  // arr.push("Previous")
 for(let i=1;i<=tp;i++){
   count++;
 
@@ -43,23 +43,25 @@ if(cp>5){
 }
  
 };
-arr.push("Next")
+// arr.push("Next")
 }
-console.log(arr);
+//console.log(arr);
 setar(arr);
   }
-console.log(ar,"ar")
+//console.log(ar,"ar")
   React.useEffect(()=>{
     decidepage(tp,page)
   },[tp,page])
   return (
     <div>
+      <Button isDisabled={page===1}>Previous</Button>
       {ar.length>0?(
-        ar.map((el)=>(
-          <Button backgroundColor={el===page?"rgb(153,204,51)":"white"}>{el}</Button>
+        ar.map((el,i)=>(
+          <Button key={i} backgroundColor={el===page?"rgb(153,204,51)":"white"}>{el}</Button>
         ))
       )
       :null}
+      <Button isDisabled={page===tp}>Next</Button>
     </div>
   )
 }

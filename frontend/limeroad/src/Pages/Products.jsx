@@ -6,9 +6,12 @@ import { Box,Flex,Grid, GridItem, Text } from '@chakra-ui/react';
 import {Sidebar} from "../Components/ProductComponents/ProductsComponents/Sidebar";
 import styles from "../Components/ProductComponents/ProductsComponents/Styles/ProductPage.module.css"
 import { Pagination } from '../Components/ProductComponents/ProductsComponents/Pagination';
+import {useSearchParams} from "react-router-dom"
 
 export const Products = () => {
   const [page,setpage]=React.useState(1);
+  let [searchParams, setSearchParams] = useSearchParams();
+  const [sort,setsort]=React.useState("");
   const [tp,settp]=React.useState(0);
   const [limit,setlimit]=React.useState(6);
 const {products,isloading}=useSelector((store)=>store.ProductReducer);
@@ -19,8 +22,10 @@ dispatch(getproductdata())
   settp(Math.ceil(res.payload.length/limit))
 })
 },[]);
-console.log(tp);
-console.log(products);
+
+
+//console.log(tp);
+//console.log(products);
   return (
     <Box backgroundColor={' rgb(238,238,238)'}>
     <Flex margin={'auto'} border={'3px solid red'}  justifyContent={'space-between'}>
@@ -43,7 +48,7 @@ console.log(products);
       </Grid>
       </Box>
     </Flex>
-    <Flex>
+    <Flex w={'100%'} justifyContent={'center'} margin={'1rem'}>
       {!isloading?<Pagination tp={tp} page={page}/>:null}
     </Flex>
     </Box>
