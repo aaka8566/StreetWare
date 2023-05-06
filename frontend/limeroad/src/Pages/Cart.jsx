@@ -47,9 +47,9 @@ export const Cart = () => {
         "type": "Formal Shoes",
         "model": "Western Wear",
         "size": [
-        "M",
-        "S",
         "L",
+        "S",
+        "M",
         "XL",
         "XXL",
         "XXXL"
@@ -69,10 +69,10 @@ export const Cart = () => {
           "type": "Formal Shoes",
           "model": "Western Wear",
           "size": [
-          "M",
+          "XL",
           "S",
           "L",
-          "XL",
+          "M",
           "XXL",
           "XXXL"
           ],
