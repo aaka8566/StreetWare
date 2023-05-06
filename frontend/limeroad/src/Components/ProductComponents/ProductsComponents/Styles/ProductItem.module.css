@@ -1,0 +1,11 @@
+.buttonadd{
+border:2px solid green;
+color:white;
+width: 80%;
+border-radius: 0.5rem;
+background-color: rgb(153,204,51);
+font-size: larger;
+padding: 0.4rem;
+font-family: "Roboto",Roboto,"Helvetica",Helvetica,"Arial",Arial,sans-serif;
+font-weight: bold;
+}

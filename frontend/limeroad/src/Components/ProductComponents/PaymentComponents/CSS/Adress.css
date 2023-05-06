@@ -1,0 +1,48 @@
+h1{
+    font-size: 20px;
+}
+.input{
+    border: none;
+    border-bottom: 1px solid #CCC;
+    background-color: transparent;
+   width: 100%;
+}
+.input:focus{
+    outline: none;
+}
+.required:after { 
+    content:"*"; 
+    color: red;
+}
+
+.pincode{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap:20px
+}
+.addresstype{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.addressbook{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  gap: 20px;
+    text-align: left;
+}
+.formpart{
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items:  baseline;
+    text-align: left;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 3px;
+}
