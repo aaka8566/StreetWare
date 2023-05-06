@@ -5,7 +5,7 @@ h1{
     border: none;
     border-bottom: 1px solid #CCC;
     background-color: transparent;
-   
+   width: 100%;
 }
 .input:focus{
     outline: none;
@@ -16,9 +16,14 @@ h1{
 }
 
 .pincode{
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    gap:100px
+    justify-content: space-between;
+}
+.addresstype{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 .addressbook{
     margin-top: 20px;
@@ -30,7 +35,7 @@ h1{
 }
 .formpart{
     width: 100%;
-    padding: 20px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     gap: 20px;
