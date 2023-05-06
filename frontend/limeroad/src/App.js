@@ -1,13 +1,13 @@
 import './App.css';
-import { SingleCard } from './Components/ProductComponents/HomeComponents/SingleCard';
-import {Slider1}  from './Components/ProductComponents/HomeComponents/Slider';
-import { Home } from './Pages/HomePage/Home';
+import Footer from './Components/ProductComponents/HomeComponents/Footer';
+import Navbar from './Components/ProductComponents/HomeComponents/Navbar';
 import {AllRoutes} from "./Routes/AllRoutes.jsx"
 function App() {
   return (
-    <div className="App">
+    <div className="App">     
+     <Navbar/>
      <AllRoutes/>
-    {/* <Home/> */}
+     <Footer/>
     </div>
   );
 }

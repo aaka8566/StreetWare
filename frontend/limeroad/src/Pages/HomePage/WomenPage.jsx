@@ -1,4 +1,5 @@
 import { Box,Text,Flex, Grid } from "@chakra-ui/react"
+import { Link } from "react-router-dom"
 import { Circle } from "../../Components/ProductComponents/HomeComponents/Circle"
 import { Coupen } from "../../Components/ProductComponents/HomeComponents/Coupen"
 import { SingleCard } from "../../Components/ProductComponents/HomeComponents/SingleCard"
@@ -146,7 +147,12 @@ export const Women=()=>{
         },       
     ]
     
-    return <Box>        
+    return <Box width="70%"margin="auto"> 
+        <Flex margin="1%">
+          <Link to="/men">Men  |  </Link>
+          <hr />
+          <Link to="/women">|  Women</Link>
+        </Flex>        
         <Flex gap="30px">
             <div>
                 <Text 

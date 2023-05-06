@@ -1,4 +1,5 @@
 import { Box,Text,Flex, Grid } from "@chakra-ui/react"
+import { Link } from "react-router-dom"
 import { Circle } from "../../Components/ProductComponents/HomeComponents/Circle"
 import { Coupen } from "../../Components/ProductComponents/HomeComponents/Coupen"
 import { SingleCard } from "../../Components/ProductComponents/HomeComponents/SingleCard"
@@ -143,16 +144,16 @@ export const Men=()=>{
             bytext:"Kanika.Cry",
             follower:"32K",
             likeno:"81"
-        },
-
-
-
-
-        
+        }, 
         
     ]
     
-    return <Box >
+    return <Box width="70%"margin="auto">
+        <Flex margin="1%">
+          <Link to="/men">Men  |  </Link>
+          <hr />
+          <Link to="/women">|  Women</Link>
+        </Flex> 
         <Flex gap="30px">
             <div>
                 <Text 
@@ -163,7 +164,7 @@ export const Men=()=>{
                 padding="10px">
                     MY
                 </Text>
-                <Text>MY FEED</Text>
+                <Text fontSize="15px">MY FEED</Text>
             </div>      <hr />      
             {circledata.map((ele,i)=>{
                 return <Circle key={i} imgsrc={ele.imgsrc} text={ele.text} />
