@@ -1,8 +1,10 @@
 import { Button } from '@chakra-ui/react';
 import React from 'react'
+import { useSearchParams } from 'react-router-dom';
 
-export const Pagination = ({tp,page}) => {
+export const Pagination = ({tp,page,setpage}) => {
   const [ar,setar]=React.useState([]);
+  let [searchParams, setSearchParams] = useSearchParams();
   const decidepage=(t,c)=>{
     let tp=t;
 let cp=c;
@@ -50,18 +52,19 @@ setar(arr);
   }
 //console.log(ar,"ar")
   React.useEffect(()=>{
+   
     decidepage(tp,page)
   },[tp,page])
   return (
     <div>
-      <Button isDisabled={page===1}>Previous</Button>
+      <Button onClick={()=>setpage((prev)=>prev-1)} isDisabled={page===1}>Previous</Button>
       {ar.length>0?(
         ar.map((el,i)=>(
-          <Button key={i} backgroundColor={el===page?"rgb(153,204,51)":"white"}>{el}</Button>
+          <Button onClick={()=>setpage(el)} key={i} backgroundColor={el===page?"rgb(153,204,51)":"white"}>{el}</Button>
         ))
       )
       :null}
-      <Button isDisabled={page===tp}>Next</Button>
+      <Button onClick={()=>setpage((prev)=>prev+1)} isDisabled={page===tp}>Next</Button>
     </div>
   )
 }
