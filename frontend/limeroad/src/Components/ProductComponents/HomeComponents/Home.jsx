@@ -2,7 +2,13 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      //Navbar
+      <Flex>
+        <Link to="/men">Men</Link>
+        <Link to="/women">Women</Link>
+      </Flex>
+    </div>
   )
 }
 
