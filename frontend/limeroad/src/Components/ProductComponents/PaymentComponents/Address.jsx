@@ -17,17 +17,17 @@ function Address() {
             <input type='number'   className='input' required={true}/>
         </div>
     </div>
-    <div>
+    <div style={{width:"100%"}}>
             <label  className='required'>Full Name</label><br/>
-            <input type="text" size="58" className='input' required={true} />
+            <input type="text"  className='input' required={true} />
         </div>
-        <div>
+        <div style={{width:"100%"}}>
             <label  className='required'>Flat / House No. / Building Name </label><br/>
-            <input type="text" size="58" className='input' required={true} />
+            <input type="text"  className='input' required={true} />
         </div>
-        <div>
+        <div style={{width:"100%"}}>
             <label  className='required'>Colony / Locality / Road Name </label><br/>
-            <input type="text" size="58" className='input' required={true} />
+            <input type="text"  className='input' required={true} />
         </div>
         <div className='pincode'>
         <div>
@@ -39,7 +39,7 @@ function Address() {
             <input type='number'   className='input' required={true}/>
         </div>
     </div>
-    <div className='pincode'>
+    <div className='addresstype'>
         <div >
             <label >Address Type</label><br/>
             <input  type="radio"  required={true} style={{margin:"5px"}}/><label>Office</label>

@@ -26,7 +26,7 @@ function CartOverview() {
     "__v": 0
     },
     {
-      "_id": "64520eb37a2b535d2f820039",
+      "_id": "64520eb37a2b535d2f820040",
       "image": "https://img3.junaroad.com/uiproducts/15892957/pri_175_p-1547294126.jpg",
       "title": "Logo Print Round-Neck Sweatshirt",
       "brand": "Levanse",
@@ -55,7 +55,7 @@ function CartOverview() {
         Cart Items({product.length})
       </div>
       {product.map((product)=>(
-        <div className='overviewproducts'>
+        <div className='overviewproducts' key={product._id}>
         <div className='picture'>
          <img src={product.image} alt="product"/>
         </div>

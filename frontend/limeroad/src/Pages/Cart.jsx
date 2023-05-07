@@ -3,6 +3,13 @@ import { CloseIcon,AddIcon,MinusIcon } from '@chakra-ui/icons';
 import { IconButton } from '@chakra-ui/react'
 import "../Components/ProductComponents/CartComponents/cart.css"
 import Bill from '../Components/ProductComponents/CartComponents/Bill';
+// import axios from "axios"
+// import { getcartproduct } from '../Redux/CartReducer/CartAction';
+// import { useDispatch, useSelector } from 'react-redux'
+// import { getcartproduct } from '../Redux/CartReducer/CartAction';
+
+
+
 export const Cart = () => {
 
   const Product=[
@@ -40,9 +47,9 @@ export const Cart = () => {
         "type": "Formal Shoes",
         "model": "Western Wear",
         "size": [
-        "M",
-        "S",
         "L",
+        "S",
+        "M",
         "XL",
         "XXL",
         "XXXL"
@@ -62,10 +69,10 @@ export const Cart = () => {
           "type": "Formal Shoes",
           "model": "Western Wear",
           "size": [
-          "M",
+          "XL",
           "S",
           "L",
-          "XL",
+          "M",
           "XXL",
           "XXXL"
           ],
@@ -74,6 +81,23 @@ export const Cart = () => {
           }
     ]
     
+// const dispatch=useDispatch()
+// const {cartproduct}=useSelector(store=>store.CartReducer)
+
+// useEffect(()=>{
+//   dispatch(getcartproduct)
+// },[])
+
+
+// console.log(cartproduct)
+
+
+const handleDelete=(id)=>{
+  // axios.delete(`https://worrisome-goat-flip-flops.cyclic.app/cart/delete/${id}`)
+  // .then(()=>dispatch(getcartproduct))
+}
+
+
     let total=0;
   for (let el of Product){
 total+=(el.Quantity*el.price)
@@ -81,11 +105,14 @@ total+=(el.Quantity*el.price)
 
 
   
-
-
-  return (
- 
-  
+if(Product.length===0)return(
+  <div>
+    <h1>Your Cart is Empty</h1>
+    <button>Continue your shopping</button>
+  </div>
+)
+if(Product.length!==0)
+  return ( 
     <div className='fulldisplay'  >
     <div className='cart' >
       <div className='products'>
@@ -106,7 +133,7 @@ total+=(el.Quantity*el.price)
        <IconButton aria-label='Search database'  bg='white' icon={<MinusIcon/>} /></p>
        </div>
        <div className='part2'>
-       <IconButton aria-label='Search database'  bg='white' icon={<CloseIcon/>} /> 
+       <IconButton aria-label='Search database'  bg='white' icon={<CloseIcon/>} onClick={()=>handleDelete(product._id)} /> 
         <div className='price'>
          <h1 style={{fontSize:"20px"}}>{product.price*product.Quantity}</h1>
          <p style={{textDecoration:"line-through",fontSize:"15px"}}>{product.before_disc*product.Quantity}</p>

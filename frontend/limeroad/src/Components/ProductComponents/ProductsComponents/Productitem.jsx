@@ -3,8 +3,11 @@ import {Box,Flex,Stack,Image,HStack,VStack, Text, Button} from "@chakra-ui/react
 import styles from "./Styles/ProductItem.module.css";
 import {AiFillHeart} from "react-icons/ai";
 import {BsWhatsapp} from "react-icons/bs"
-export const Productitem = ({price,before_disc,offer_percent,title,image,_id}) => {
+import { useDispatch } from 'react-redux';
+import { addtocartdata } from '../../../Redux/ProductReducer/ProductAction';
+export const Productitem = ({price,before_disc,offer_percent,title,image,_id,size,Quantity}) => {
     const [loading,setload]=React.useState(true);
+    const dispatch=useDispatch();
   return (
     <VStack w={'100%'}>
 
@@ -25,7 +28,7 @@ export const Productitem = ({price,before_disc,offer_percent,title,image,_id}) =
 </HStack>
 </HStack>
 <Box w={'100%'}>
-<button onClick={()=>{console.log("hello")}}  className={styles.buttonadd}>Add To Cart</button>
+<button onClick={()=>{dispatch(addtocartdata({price,before_disc,offer_percent,title,image,_id,size,Quantity}))}}  className={styles.buttonadd}>Add To Cart</button>
 </Box>
 </VStack>
     </VStack>
