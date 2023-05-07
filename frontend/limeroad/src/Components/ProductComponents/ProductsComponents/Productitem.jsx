@@ -5,7 +5,7 @@ import {AiFillHeart} from "react-icons/ai";
 import {BsWhatsapp} from "react-icons/bs"
 import { useDispatch } from 'react-redux';
 import { addtocartdata } from '../../../Redux/ProductReducer/ProductAction';
-export const Productitem = ({price,before_disc,offer_percent,title,image,_id}) => {
+export const Productitem = ({price,before_disc,offer_percent,title,image,_id,size,Quantity}) => {
     const [loading,setload]=React.useState(true);
     const dispatch=useDispatch();
   return (
@@ -28,7 +28,7 @@ export const Productitem = ({price,before_disc,offer_percent,title,image,_id}) =
 </HStack>
 </HStack>
 <Box w={'100%'}>
-<button onClick={()=>{dispatch(addtocartdata({price,before_disc,offer_percent,title,image,_id}))}}  className={styles.buttonadd}>Add To Cart</button>
+<button onClick={()=>{dispatch(addtocartdata({price,before_disc,offer_percent,title,image,_id,size,Quantity}))}}  className={styles.buttonadd}>Add To Cart</button>
 </Box>
 </VStack>
     </VStack>
