@@ -155,7 +155,7 @@ export const Men=()=>{
           <hr />
           <Link to="/women">|  Women</Link>
         </Flex> 
-        <Flex gap="30px">
+        <Flex gap="30px" mt="10px">
             <div>
                 <Text 
                 color="red" 
@@ -163,7 +163,8 @@ export const Men=()=>{
                 borderRadius="50%"
                 height="60px"
                 width="60px"
-                padding="10px">
+                padding={["12px","10px"]}
+                align="center">
                     MY
                 </Text>
                 <Text fontSize="15px">MY FEED</Text>

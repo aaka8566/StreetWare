@@ -9,7 +9,7 @@ import { Women } from './WomenPage'
 
 export const Home = () => {
   return (
-    <Box width="95%" margin="auto">
+    <Box width="95%" margin="auto" mt="0">
       <Box width="70%" margin="auto">     
       <Flex margin="1%">
           <Link to="/men">Men  |  </Link>
@@ -17,7 +17,7 @@ export const Home = () => {
           <Link to="/women">|  Women</Link>
       </Flex>    
       </Box>
-      <Men/>
+      
     </Box>
     
   )

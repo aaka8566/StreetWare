@@ -35,7 +35,7 @@ import {useNavigate } from 'react-router-dom';
       navigate("/men")      
     }
     return (
-      <Box padding="0px 1%">
+      <Box padding="0px 1%" mt="-2%" >
         <Flex
           bg={useColorModeValue('white', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}
@@ -63,13 +63,11 @@ import {useNavigate } from 'react-router-dom';
             <Image
               onClick={homelogo}
               textAlign={useBreakpointValue({ base: 'center', md: 'center' })}
-              width={useBreakpointValue({ base: '80px', md: '100px' })}
-              fontFamily={'heading'}
-              
+              // width={useBreakpointValue({ base: '200px', md: '180px' })}
+              width="180px"
+              fontFamily={'heading'}              
               color={useColorModeValue('gray.800', 'white')}
-              src="./street_ware_logo.png"/>           
-            
-  
+              src="./street_ware_logo.png"/>    
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />
             </Flex>
