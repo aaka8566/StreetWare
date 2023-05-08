@@ -13,6 +13,7 @@ import { AdminProducts } from "../Pages/Admin/AdminProducts";
 import { Login } from "../Pages/Login";
 import { Men } from '../Pages/HomePage/MensPage';
 import { Women } from '../Pages/HomePage/WomenPage';
+import { PrivateRoute } from './PrivateRoute';
 
 export const AllRoutes = () => {
   return (
@@ -21,7 +22,11 @@ export const AllRoutes = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/cart" element={
+         <PrivateRoute>
+        <Cart />
+        </PrivateRoute>
+        }></Route>
         <Route path="/payment" element={<Payment />}></Route>
         <Route path="/adminhome" element={<AdminHome />}></Route>
         <Route path="/adminproducts" element={<AdminProducts />}></Route>

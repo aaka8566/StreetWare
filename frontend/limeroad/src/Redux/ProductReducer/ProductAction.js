@@ -21,7 +21,7 @@ return axios.get(`https://lavender-pelican-hem.cyclic.app/products`,
     params:obj,
 
 })
-.then((res)=>dispatch(getproductsuccessaction(res.data)))
+.then((res)=>{dispatch(getproductsuccessaction(res.data))})
 .catch((err)=>dispatch(getproductfailureaction(err)));
 }
 

@@ -1,9 +1,11 @@
 import React from 'react'
-
-const PrivateRoute = () => {
-  return (
-    <div>PrivateRoute</div>
-  )
+import { useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom';
+export const PrivateRoute = ({children}) => {
+  const  {isAuth}=useSelector((store)=>store.AuthReducer);
+if(isAuth){
+  return children;
+}
+  return <Navigate to="/login"/>
 }
 
-export default PrivateRoute
