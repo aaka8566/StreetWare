@@ -12,15 +12,15 @@ export const SingleCard=(props)=>{
             </Box>     
             <Flex gap="10px" height="30px">
                 <Image src={secimagesrc} alt='' w="28px" borderRadius="50%" ml="5px" />
-                <VStack fontSize="10px" lineHeight="8px" w="100px" mt="5px">
-                    <Text>
+                <VStack  lineHeight="8px" w="100px" mt="5px">
+                    <Text fontSize={["10px","12px","14px"]}>
                         By {bytext}
                     </Text>
-                    <Text>
+                    <Text fontSize={["10px","12px","14px"]}>
                         {follower} followers
                     </Text>
                 </VStack>
-                <VStack mt="-30px" lineHeight="2px"fontSize="12px" ml="10px">
+                <VStack mt="-30px" lineHeight="2px"fontSize={["10px","12px","14px"]} ml="10px">
                     <Box borderRadius="50%" backgroundColor="white">
                         <Image src={like} alt="" borderRadius="50%" w="50px" margin="5px"/>
                         <p>{likeno} Likes</p>
