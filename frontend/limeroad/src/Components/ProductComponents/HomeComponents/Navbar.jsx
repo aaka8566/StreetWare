@@ -281,8 +281,8 @@ import {useNavigate } from 'react-router-dom';
             borderColor={useColorModeValue('gray.200', 'gray.700')}
             align={'start'}>
             {children &&
-              children.map((child) => (
-                <Link key={child.label} py={2} href={child.href}>
+              children.map((child,i) => (
+                <Link key={i} py={2} href={child.href}>
                   {child.label}
                 </Link>
               ))}
