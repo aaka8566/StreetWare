@@ -168,10 +168,17 @@ export const Men=()=>{
                     MY
                 </Text>
                 <Text fontSize="15px">MY FEED</Text>
-            </div>      <hr />      
-            {circledata.map((ele,i)=>{
-                return <Circle key={i} imgsrc={ele.imgsrc} text={ele.text} />
-            })}          
+            </div>      <hr />    
+            <Flex gap="30px"mt="10px"
+            w={["400px","100%"]}
+            overflow="scroll"
+            ml="-20px"            
+            >
+                {circledata.map((ele,i)=>{
+                    return <Circle key={i} imgsrc={ele.imgsrc} text={ele.text} />
+                })} 
+            </Flex>  
+                     
         </Flex>
         <Coupen/>
         <Slider1 className="slider"/>
