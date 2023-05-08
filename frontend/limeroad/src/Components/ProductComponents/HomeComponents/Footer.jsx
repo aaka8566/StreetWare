@@ -1,3 +1,4 @@
+import React from "react";
 import {
     Box,
     chakra,
@@ -16,6 +17,7 @@ import {
   import { BiMailSend } from 'react-icons/bi';
   
   const Logo = (props) => {
+    
     return (
       <svg
         height={32}
@@ -70,6 +72,7 @@ import {
   };
   
   export default function Footer() {
+    const [email,setEmail]=React.useState("");
     return (
       <Box
         bg={useColorModeValue('gray.50', 'gray.900')}
@@ -123,9 +126,11 @@ import {
                   _focus={{
                     bg: 'whiteAlpha.300',
                   }}
+                  value={email}
+                  onChange={(e)=>setEmail(e.target.value)}
                 />
                 <IconButton
-                onClick={()=>{alert("You are subscribed !!")}}
+                onClick={()=>{alert(`${email} You are subscribed !!`)}}
                   bg={useColorModeValue('green.400', 'green.800')}
                   color={useColorModeValue('white', 'gray.800')}
                   _hover={{
