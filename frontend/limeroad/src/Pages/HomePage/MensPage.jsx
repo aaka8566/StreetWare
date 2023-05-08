@@ -150,7 +150,7 @@ export const Men=()=>{
     ]
     
     return <Box width="70%"margin="auto">
-        <Flex margin="1%">
+        <Flex marginTop={["none","-50px"]} mb="20px">
           <Link to="/men">Men  |  </Link>
           <hr />
           <Link to="/women">|  Women</Link>
