@@ -6,7 +6,9 @@ h3{
 .fulldisplay{
     background-color: rgb(242, 241, 241);
     width: 100%;
+   
     border: 1px solid white;
+    height:100vh
 }
 
 .cart{
@@ -165,6 +167,12 @@ h3{
 /*small screen*/
 
 @media screen and (min-width:100px) and (max-width:599px){
+    .fulldisplay{
+        background-color: rgb(242, 241, 241);
+        width: 100%;
+        border: 1px solid white;
+
+    }
     .cart{
         width: 90%;
         margin: auto;
