@@ -18,20 +18,23 @@ function Upipayment({total}) {
 </div>
 <div className='parts'>
 <h4>Applicable Tax and Charges</h4>
-<h4>+ ₹ 416</h4>
+<h4>+ ₹ {Math.floor(total*18/100)}</h4>
 </div>
 <div className='parts'>
     <h4>LR Credit applied</h4>
-    <h4> - ₹ {total-(total*10)/100}</h4>
+    <h4> - ₹ 0</h4>
 </div>
-
+<div className='parts'>
+    <h4>Prepaid Discount</h4>
+    <h4> - ₹ {Math.floor((total*10)/100)}</h4>
+</div>
 <div className='parts5'>
     <h1>Amount Payable</h1>
-    <h1>₹ {total+416}</h1>
+    <h1>₹ {Math.floor(total+(total*18/100)-(total*10)/100)}</h1>
 </div>
 
 <div className='confirmbutton1'>
-<button>CONFIRM ORDER {total}</button>
+<button>CONFIRM ORDER ₹ {Math.floor(total+(total*18/100)-(total*10)/100)}</button>
 </div>
     </div>
   )

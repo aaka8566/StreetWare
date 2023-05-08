@@ -18,11 +18,11 @@ function Bill({total}) {
 </div>
 <div className='parts'>
 <h4>Applicable Tax and Charges</h4>
-<h4>+ ₹ 416</h4>
+<h4>+ ₹ {total*18/100}</h4>
 </div>
 <div className='parts5'>
     <h1>Amount Payable</h1>
-    <h1>₹ {total+416}</h1>
+    <h1>₹ {total+Math.floor(total*18/100)}</h1>
 </div>
 <div className='buybutton'>
 <NavLink to="/payment"><button>BUY NOW</button></NavLink>
