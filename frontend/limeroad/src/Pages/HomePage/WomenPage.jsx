@@ -160,6 +160,7 @@ export const Women=()=>{
                 border="1px solid red" 
                 borderRadius="50%"
                 height="50px"
+                width="50px"
                 padding="10px">
                     MY
                 </Text>

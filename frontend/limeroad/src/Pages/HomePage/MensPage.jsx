@@ -4,6 +4,7 @@ import { Circle } from "../../Components/ProductComponents/HomeComponents/Circle
 import { Coupen } from "../../Components/ProductComponents/HomeComponents/Coupen"
 import { SingleCard } from "../../Components/ProductComponents/HomeComponents/SingleCard"
 import { Slider1 } from "../../Components/ProductComponents/HomeComponents/Slider"
+import "./Page.style.css";
 
 export const Men=()=>{
     const circledata=[
@@ -160,7 +161,8 @@ export const Men=()=>{
                 color="red" 
                 border="1px solid red" 
                 borderRadius="50%"
-                height="50px"
+                height="60px"
+                width="60px"
                 padding="10px">
                     MY
                 </Text>
@@ -171,9 +173,11 @@ export const Men=()=>{
             })}          
         </Flex>
         <Coupen/>
-        <Slider1/>
+        <Slider1 className="slider"/>
         <Grid 
-        templateColumns={"repeat(3,1fr)"}
+        templateColumns={["repeat(1,1fr)","repeat(2,1fr)","repeat(3,1fr)"]
+
+        }
         >
             {CardData.map((ele,i)=>{
                 return <SingleCard key={i} {...ele}/>

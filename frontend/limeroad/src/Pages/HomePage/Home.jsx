@@ -17,7 +17,7 @@ export const Home = () => {
           <Link to="/women">|  Women</Link>
       </Flex>    
       </Box>
-      {/* <Men/> */}
+      <Men/>
     </Box>
     
   )
