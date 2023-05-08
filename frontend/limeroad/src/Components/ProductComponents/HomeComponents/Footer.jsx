@@ -125,6 +125,7 @@ import {
                   }}
                 />
                 <IconButton
+                onClick={()=>{alert("You are subscribed !!")}}
                   bg={useColorModeValue('green.400', 'green.800')}
                   color={useColorModeValue('white', 'gray.800')}
                   _hover={{
