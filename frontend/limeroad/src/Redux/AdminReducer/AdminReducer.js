@@ -1,7 +1,18 @@
+import { GET_ALLPRODUCTS_FAILURE, GET_ALLPRODUCTS_REQUEST, GET_ALLPRODUCTS_SUCCESS } from "./AdminActionType";
 
-
-export const reducer=(state=null,action)=>{
-    switch(action.type){
-default:return state;
+const initialState = {
+    isLoading:false,
+    isError:false,
+    allproducts:[]
+}
+export const reducer=(state=initialState,{type,payload})=>{
+    switch(type){
+        case GET_ALLPRODUCTS_REQUEST :
+            return {...state,isLoading:true}
+        case GET_ALLPRODUCTS_SUCCESS :
+            return {...state,isLoading:false,allproducts:payload}
+        case GET_ALLPRODUCTS_FAILURE :
+            return {...state,isLoading:false,isError:true}
+        default:return state;
     }
 }

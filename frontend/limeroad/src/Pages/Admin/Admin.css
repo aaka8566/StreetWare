@@ -1,0 +1,75 @@
+*{
+    background-color: #E0E0E0;
+}
+
+.loginBox{
+    display:flex;
+    justify-content: space-around;
+    background-color: white;
+    width:500px;
+    height: 130px;
+    margin:auto;
+    margin-top: 50px;
+    align-items: center;
+}
+.userIcon{
+   width:100px;
+   height: 100px;
+   backGround-color: rgba(0,0,0,.2);
+   color:rgba(0,0,0,.2);
+   border-radius: 50%;
+   border: 0;
+}
+.loginChild{
+   background-color: white;
+
+}
+.loginChild div{
+   display: flex;
+   justify-content: space-between;
+   margin:10px;
+   background-color: white;
+}
+.loginChild div p{
+    background-color: white;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.FaUserCircle{
+    width:30px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+
+
+}
+.loginChild hr{
+   color:black;
+   height: 2px;
+   background-color: black;
+}
+.loginChild p{
+    background-color: white;
+}
+.loginForm{
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 50px;
+}
+.loginForm input{
+    width: 400px;
+    height: 40px;
+    border-bottom: 1px solid black;
+    margin: 20px;
+    padding: 10px;
+}
+.loginForm button{
+    background-color:rgba(0,0,0,.2) ;
+    width: 400px;
+    height: 40px;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin-top: 50px;
+}
