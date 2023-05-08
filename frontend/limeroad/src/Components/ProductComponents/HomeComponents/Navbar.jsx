@@ -181,7 +181,7 @@ import {useNavigate } from 'react-router-dom';
                   rowGap="-10px"
                   >
                     {navItem.children.map((child,i) => (
-                      <DesktopSubNav key={i} {...child} />
+                      <DesktopSubNav key={i+1} {...child} />
                     ))}
                   </Grid>
                 </PopoverContent>
@@ -234,7 +234,7 @@ import {useNavigate } from 'react-router-dom';
         p={4}
         display={{ md: 'none' }}>
         {NAV_ITEMS.map((navItem,i) => (
-          <MobileNavItem key={i} {...navItem} />
+          <MobileNavItem key={i+2} {...navItem} />
         ))}
       </Stack>
     );
@@ -280,7 +280,7 @@ import {useNavigate } from 'react-router-dom';
             align={'start'}>
             {children &&
               children.map((child,i) => (
-                <Link key={i} py={2} href={child.href}>
+                <Link key={i+3} py={2} href={child.href}>
                   {child.label}
                 </Link>
               ))}
