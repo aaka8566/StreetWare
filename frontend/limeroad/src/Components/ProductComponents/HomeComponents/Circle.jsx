@@ -5,7 +5,7 @@ export const Circle=(props)=>{
     const {imgsrc,text}=props;
     
     return (<VStack >
-        <Image src={imgsrc} alt="" borderRadius="50%" width="50px"/>
+        <Image src={imgsrc} alt="" borderRadius="50%" height="50px" w="55px"/>
         <Text fontSize="12px" >{text}</Text>
     </VStack>
     )
