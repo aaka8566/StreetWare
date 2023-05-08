@@ -6,6 +6,9 @@ import Upipayment from '../Components/ProductComponents/PaymentComponents/Upipay
 import  Cashondelivery  from '../Components/ProductComponents/PaymentComponents/Cashondelivery'
 import Cardpayment from '../Components/ProductComponents/PaymentComponents/Cardpayment'
 import NetBanking from '../Components/ProductComponents/PaymentComponents/NetBanking'
+ import { useSelector } from 'react-redux'
+
+
 
 export const Payment = () => {
 
@@ -30,6 +33,15 @@ const mode=[
 
 const [click,setClick]=useState("")
 
+const {cartproduct}=useSelector(store=>store.CartReducer)
+
+let total=0;
+for(let el of cartproduct){
+  total+=el.Quantity*el.price
+}
+
+
+
 
   return (
 <div className='paymentbody'>
@@ -52,7 +64,7 @@ const [click,setClick]=useState("")
  <div className='paymentParts'>
     <div className='paymentPart1'>
        {mode.map((el)=>(
-         <div className='Types' key={el.type} onClick={()=>setClick(el.type)} >
+         <div className='Types' key={el.type} onClick={()=>{setClick(el.type)}}  >
          <h4>{el.type}</h4>
          <p>({el.offer})</p>
        </div>
@@ -60,10 +72,10 @@ const [click,setClick]=useState("")
     </div>
     <div className='paymentPart2'>
       
-      {click==="Cash On Delivery"?<Cashondelivery/>:""}
-      {click==="Paytm/Google Pay/PhonePe"?<Upipayment/>:""}
-      {click==="Debit Card/ Credit card"?<Cardpayment/>:""}
-      {click==="Net Banking"?<NetBanking/>:""}
+      {click==="Cash On Delivery"?<Cashondelivery total={total}/>:""}
+      {click==="Paytm/Google Pay/PhonePe"?<Upipayment total={total}/>:""}
+      {click==="Debit Card/ Credit card"?<Cardpayment total={total}/>:""}
+      {click==="Net Banking"?<NetBanking total={total}/>:""}
 
     </div>
  </div>
