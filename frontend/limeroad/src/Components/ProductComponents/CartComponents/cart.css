@@ -19,12 +19,16 @@ h3{
     display: flex;
     justify-content: space-around;
     margin-bottom:5dvw;
+    
 }
 .products{
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 50%;
+    height: 500px;
+    overflow-y: scroll;
+  
 }
 .selectedProductCard{
     display: flex;
@@ -32,6 +36,7 @@ h3{
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     background-color: white;
+ 
 }
 .productimage{
     width: 25%;
@@ -195,6 +200,7 @@ h3{
         border-radius: 5px;
         box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
         background-color: white;
+        
     }
     .billing{
         width: 100%;

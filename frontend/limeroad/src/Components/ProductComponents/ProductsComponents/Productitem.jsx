@@ -18,7 +18,8 @@ export const Productitem = ({el,data,setdata,onOpen,setsingleproduct}) => {
     const toast = useToast()
 
   return (
-    <VStack onClick={()=>{setsingleproduct(el);onOpen()}} w={'100%'}>
+    // onClick={()=>{setsingleproduct(el);onOpen()}}
+    <VStack  w={'100%'}>
 
 
 <Box w={'100%'} border={'px solid green'} position={'relative'} >
