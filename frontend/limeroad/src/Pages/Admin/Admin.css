@@ -1,4 +1,10 @@
 
+.container{
+    background-color: #E0E0E0;
+    width: 100%;
+    margin-top: 50px;
+}
+
 
 .loginBox{
     display:flex;
@@ -64,10 +70,38 @@
     padding: 10px;
 }
 .loginForm button{
-    background-color:rgba(0,0,0,.2) ;
+    background-color:black;
     width: 400px;
     height: 40px;
     font-weight: bolder;
     border-radius: 10px;
     margin-top: 50px;
+   color:white
+}
+.editproduct input,select{
+    width:500px;
+    height: 50px;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    margin: 20px;
+    background-color: #E0E0E0;
+    color:#607D8B
+}
+.container h1{
+    font-size:50px;
+    color:#607D8B;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.editproduct button{
+    background-color: black;
+    color: white;
+    height: 50px;
+    width:500px;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+.editproduct button:hover{
+    background-color: white;
+    color:black
 }

@@ -14,8 +14,16 @@ import { AdminProducts } from "../Pages/Admin/AdminProducts";
 import { Login } from "../Pages/Login";
 import { Men } from '../Pages/HomePage/MensPage';
 import { Women } from '../Pages/HomePage/WomenPage';
+
+import AdminLogin from '../Pages/Admin/AdminLogin';
+import AdminAddProducts from '../Pages/Admin/AdminAddProducts';
+import AdminEditProduct from '../Pages/Admin/AdminEditProduct';
 import { PrivateRoute } from './PrivateRoute';
 import AdminLogin from "../Pages/Admin/AdminLogin"
+
+import { PrivateRoute } from './PrivateRoute';
+import AdminLogin from "../Pages/Admin/AdminLogin"
+
 export const AllRoutes = () => {
   return (
     <div>
@@ -34,14 +42,12 @@ export const AllRoutes = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/" element={<Men />}></Route>
         <Route path="/men" element={<Men />}></Route>
-        <Route path="/adminlogin" element={<AdminLogin/>}></Route>
-        <Route path="/women" element={<Women/>}></Route>
+        <Route path="/adminlogin" element={<AdminLogin />}></Route>
+        <Route path="/women" element={<Women />}></Route>
+        <Route path="/addproduct" element={<AdminAddProducts/>}></Route>
+        <Route path="/editproduct/:id" element={<AdminEditProduct />}></Route>
       </Routes>
     </div>
-
-
-
-        
   );
 };
 
