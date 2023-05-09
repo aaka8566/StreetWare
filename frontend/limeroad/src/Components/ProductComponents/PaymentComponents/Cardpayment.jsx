@@ -1,11 +1,13 @@
 import React from 'react'
 import "./CSS/Cardpayment.css"
+import { useNavigate } from 'react-router-dom';
 
 
-function Cardpayment() {
+function Cardpayment({total,setclicked}) {
+const navigate=useNavigate();
   return (
     <div style={{width:"80%",margin:'auto'}}>
-        <h4 style={{textAlign:"left"}}>₹ 121 Discount Available</h4>
+        <h4 style={{textAlign:"left"}}>₹ {Math.floor(total*10/100)} Discount Available</h4>
         <div className='carddetails'>
             <div className='Cardname'>
                 <label className='required'>Card Number</label><br/>
@@ -23,11 +25,13 @@ function Cardpayment() {
                 <p>show Order Details</p>
                 <div className='amount' >
                 <h1>Amount Payable</h1>
-                <h1>₹ 1260</h1>
+                <h1>₹ {Math.floor(total+(total*18/100)-(total*10)/100)}</h1>
                 </div>
             </div>
             <div className='cardbutton'>
-                <button>CONFIRM ORDER ₹ 1200 </button>
+                <button onClick={()=>{setclicked(true);setTimeout(() => {
+  navigate("/")
+}, 4500);}}>CONFIRM ORDER ₹ {Math.floor(total+(total*18/100)-(total*10)/100)} </button>
             </div>
         </div>
 

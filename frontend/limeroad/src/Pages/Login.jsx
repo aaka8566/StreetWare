@@ -12,21 +12,29 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { login } from "../Redux/AuthReducer/AuthAction";
-import { Link } from "react-router-dom";
+import { useDispatch,useSelector } from "react-redux";
+import { login, logout } from "../Redux/AuthReducer/AuthAction";
+import { Link,useNavigate,useLocation } from "react-router-dom";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const dispatch = useDispatch();
-
+  const {isAuth,token}=useSelector((store)=>store.AuthReducer);
+const navigate=useNavigate();
+const location=useLocation();
   const hadleSubmit = (e) => {
     e.preventDefault();
     const userData = { email, pass };
     dispatch(login(userData))
       .then((res) => {
         console.log(res);
+        if(location.state==="/cart"){
+          navigate(location.state)
+        }
+        else{
+          navigate("/")
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -34,6 +42,7 @@ export const Login = () => {
     setEmail("");
     setPass("");
   };
+
 
   return (
     <div>

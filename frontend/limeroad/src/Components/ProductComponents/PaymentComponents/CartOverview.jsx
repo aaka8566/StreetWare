@@ -1,60 +1,25 @@
-import React from 'react'
+import React,{ useEffect}  from 'react'
 import "./CSS/cartitem.css"
 import {Link as NavLink} from "react-router-dom"
+import { useSelector,useDispatch } from 'react-redux';
+import { getcartproduct } from '../../../Redux/CartReducer/CartAction';
+
 function CartOverview() {
-  const product=[
-  {
-    "_id": "64520eb37a2b535d2f820039",
-    "image": "https://img3.junaroad.com/uiproducts/15892957/pri_175_p-1547294126.jpg",
-    "title": "Logo Print Round-Neck Sweatshirt",
-    "brand": "Levanse",
-    "price": 849,
-    "before_disc": 1699,
-    "offer_percent": 50,
-    "gender": "Men",
-    "type": "Formal Shoes",
-    "model": "Western Wear",
-    "size": [
-    "M",
-    "S",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-    ],
-    "Quantity": 7,
-    "__v": 0
-    },
-    {
-      "_id": "64520eb37a2b535d2f820040",
-      "image": "https://img3.junaroad.com/uiproducts/15892957/pri_175_p-1547294126.jpg",
-      "title": "Logo Print Round-Neck Sweatshirt",
-      "brand": "Levanse",
-      "price": 849,
-      "before_disc": 1699,
-      "offer_percent": 50,
-      "gender": "Men",
-      "type": "Formal Shoes",
-      "model": "Western Wear",
-      "size": [
-      "M",
-      "S",
-      "L",
-      "XL",
-      "XXL",
-      "XXXL"
-      ],
-      "Quantity": 7,
-      "__v": 0
-      }]
+
+  const dispatch=useDispatch()
+  useEffect(()=>{
+    dispatch(getcartproduct)
+  },[])
   
+      const {cartproduct}=useSelector(store=>store.CartReducer)
+
   
   return (
     <div style={{marginBottom:"40px"}}>
       <div className='headers'>
-        Cart Items({product.length})
+        Cart Items({cartproduct.length})
       </div>
-      {product.map((product)=>(
+      {cartproduct.map((product)=>(
         <div className='overviewproducts' key={product._id}>
         <div className='picture'>
          <img src={product.image} alt="product"/>

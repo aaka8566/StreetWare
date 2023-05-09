@@ -5,13 +5,14 @@ import {
   SIGNUP_FAILED,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
+  LOGOUT_SUCCESS
 } from "./AuthActionType";
 
 const initialState = {
   isLoading: false,
   isError: false,
   isAuth: false,
-  token: "",
+  token: localStorage.getItem("token"),
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -34,6 +35,7 @@ export const reducer = (state = initialState, { type, payload }) => {
       case LOGIN_FAILED: {
         return { ...state, isLoading: false, isError: true };
       }
+      case LOGOUT_SUCCESS:{return{...state,isAuth:false,token:""}}
     default:
       return state;
   }

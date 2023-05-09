@@ -6,6 +6,7 @@ import {
   SIGNUP_FAILED,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
+  LOGOUT_SUCCESS
 } from "./AuthActionType";
 
 export const singUp = (userData) => (dispatch) => {
@@ -35,9 +36,16 @@ export const login = (userData) => (dispatch) => {
       console.log(res);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
       localStorage.setItem("token", res.data.token);
+
     })
     .catch((err) => {
       console.log(err);
       dispatch({ type: LOGIN_FAILED });
     });
+};
+
+export const logout = () => (dispatch) => {
+  // Complete login logic here
+ dispatch({type:LOGOUT_SUCCESS});
+  localStorage.removeItem('token');  
 };

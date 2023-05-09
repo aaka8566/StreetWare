@@ -6,6 +6,9 @@ import Upipayment from '../Components/ProductComponents/PaymentComponents/Upipay
 import  Cashondelivery  from '../Components/ProductComponents/PaymentComponents/Cashondelivery'
 import Cardpayment from '../Components/ProductComponents/PaymentComponents/Cardpayment'
 import NetBanking from '../Components/ProductComponents/PaymentComponents/NetBanking'
+ import { useSelector } from 'react-redux'
+
+
 
 export const Payment = () => {
 
@@ -29,6 +32,15 @@ const mode=[
 ]
 
 const [click,setClick]=useState("")
+const [clicked,setclicked]=useState(false);
+const {cartproduct}=useSelector(store=>store.CartReducer)
+
+let total=0;
+for(let el of cartproduct){
+  total+=el.Quantity*el.price
+}
+
+
 
 
   return (
@@ -49,10 +61,10 @@ const [click,setClick]=useState("")
  </div>
  <h1 className='mode'>Payment Mode</h1>
 
- <div className='paymentParts'>
+ {clicked?<img src='https://cdn.dribbble.com/users/2572904/screenshots/17169793/media/ed801ffe0fbeb4b95ca246ba1f5ea398.gif' alt="memo"/>:<div className='paymentParts'>
     <div className='paymentPart1'>
        {mode.map((el)=>(
-         <div className='Types' key={el.type} onClick={()=>setClick(el.type)} >
+         <div className='Types' key={el.type} onClick={()=>{setClick(el.type)}}  >
          <h4>{el.type}</h4>
          <p>({el.offer})</p>
        </div>
@@ -60,13 +72,13 @@ const [click,setClick]=useState("")
     </div>
     <div className='paymentPart2'>
       
-      {click==="Cash On Delivery"?<Cashondelivery/>:""}
-      {click==="Paytm/Google Pay/PhonePe"?<Upipayment/>:""}
-      {click==="Debit Card/ Credit card"?<Cardpayment/>:""}
-      {click==="Net Banking"?<NetBanking/>:""}
+      {click==="Cash On Delivery"?<Cashondelivery setclicked={setclicked} total={total}/>:""}
+      {click==="Paytm/Google Pay/PhonePe"?<Upipayment setclicked={setclicked} total={total}/>:""}
+      {click==="Debit Card/ Credit card"?<Cardpayment setclicked={setclicked} total={total}/>:""}
+      {click==="Net Banking"?<NetBanking setclicked={setclicked} total={total}/>:""}
 
     </div>
- </div>
+ </div>}
 </div>
 </div>
 </div>
