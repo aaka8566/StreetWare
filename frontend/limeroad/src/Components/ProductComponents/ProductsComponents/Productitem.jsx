@@ -16,9 +16,8 @@ export const Productitem = ({el,data,setdata,onOpen,setsingleproduct}) => {
     const dispatch=useDispatch();
     const [size, setSize] = React.useState('');
     const toast = useToast()
-
-  return (
     // onClick={()=>{setsingleproduct(el);onOpen()}}
+  return (
     <VStack  w={'100%'}>
 
 
