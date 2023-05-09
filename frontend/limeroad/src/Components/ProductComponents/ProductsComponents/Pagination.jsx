@@ -56,7 +56,7 @@ setar(arr);
     decidepage(tp,page)
   },[tp,page])
   return (
-    <div>
+    <div >
       <Button onClick={()=>setpage((prev)=>prev-1)} isDisabled={page===1}>Previous</Button>
       {ar.length>0?(
         ar.map((el,i)=>(
