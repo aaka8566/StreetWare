@@ -2,7 +2,7 @@ import React from 'react'
 import { FaRupeeSign } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { DeleteProduct } from '../../Redux/AdminReducer/AdminAction';
+import { DeleteProduct, getAllProducts } from '../../Redux/AdminReducer/AdminAction';
 
 
 
@@ -11,7 +11,7 @@ const AdminCard= ({_id,image,brand,price,title,gender,model,offer_percent,size,t
   const navigate = useNavigate();
   const handleDelete = (id)=>{
     dispatch(DeleteProduct(id))
-    
+    dispatch(getAllProducts())
   }
   return (
     <div

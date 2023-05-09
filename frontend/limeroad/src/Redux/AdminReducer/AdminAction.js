@@ -1,5 +1,5 @@
 import axios from "axios"
-import { DELETE_PRODUCT_SUCCESS, GET_ALLPRODUCTS_FAILURE, GET_ALLPRODUCTS_REQUEST, GET_ALLPRODUCTS_SUCCESS, PATCH_PRODUCT_SUCCESS } from "./AdminActionType"
+import { ADD_ALLPRODUCTS_FAILURE, ADD_ALLPRODUCTS_REQUEST, ADD_ALLPRODUCTS_SUCCESS, DELETE_PRODUCT_SUCCESS, GET_ALLPRODUCTS_FAILURE, GET_ALLPRODUCTS_REQUEST, GET_ALLPRODUCTS_SUCCESS, PATCH_PRODUCT_SUCCESS } from "./AdminActionType"
 
 
 
@@ -42,4 +42,15 @@ export const editProduct = (dataobj,id)=>(dispatch)=>{
         dispatch({ type: PATCH_PRODUCT_SUCCESS });
       })
       .catch((err) => dispatch({ type: GET_ALLPRODUCTS_FAILURE }));
+}
+
+export const addProduct = (data)=>(dispatch)=>{
+    dispatch({type:ADD_ALLPRODUCTS_REQUEST})
+    axios.post(`https://worrisome-goat-flip-flops.cyclic.app/products/create`,data)
+    .then((res)=>{
+        dispatch({type:ADD_ALLPRODUCTS_SUCCESS})
+        console.log(res)
+    }).catch((err)=>{
+        dispatch({type:ADD_ALLPRODUCTS_FAILURE})
+    });
 }
