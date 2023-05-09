@@ -5,9 +5,9 @@ import {AllRoutes} from "./Routes/AllRoutes.jsx"
 function App() {
   return (
     <div className="App">     
-     {/* <Navbar/> */}
+     <Navbar/>
      <AllRoutes/>
-     {/* <Footer/> */}
+     <Footer/>
     </div>
   );
 }
