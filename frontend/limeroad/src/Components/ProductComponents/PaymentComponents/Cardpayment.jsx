@@ -1,8 +1,10 @@
 import React from 'react'
 import "./CSS/Cardpayment.css"
+import { useNavigate } from 'react-router-dom';
 
 
-function Cardpayment({total}) {
+function Cardpayment({total,setclicked}) {
+const navigate=useNavigate();
   return (
     <div style={{width:"80%",margin:'auto'}}>
         <h4 style={{textAlign:"left"}}>₹ {Math.floor(total*10/100)} Discount Available</h4>
@@ -27,7 +29,9 @@ function Cardpayment({total}) {
                 </div>
             </div>
             <div className='cardbutton'>
-                <button>CONFIRM ORDER ₹ {Math.floor(total+(total*18/100)-(total*10)/100)} </button>
+                <button onClick={()=>{setclicked(true);setTimeout(() => {
+  navigate("/")
+}, 4500);}}>CONFIRM ORDER ₹ {Math.floor(total+(total*18/100)-(total*10)/100)} </button>
             </div>
         </div>
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import "../CartComponents/cart.css"
-
- function Cashondelivery({total}) {
-
+import { useNavigate } from 'react-router-dom';
+ function Cashondelivery({total,setclicked}) {
+const navigate=useNavigate();
   return (
     <div >
 <div className='parts'>
@@ -30,7 +30,9 @@ import "../CartComponents/cart.css"
 </div>
 
 <div className='confirmbutton1'>
-<button>CONFIRM ORDER ₹ {Math.floor(total+(total*18/100))}</button>
+<button onClick={()=>{setclicked(true);setTimeout(() => {
+  navigate("/")
+}, 4500);}}>CONFIRM ORDER ₹ {Math.floor(total+(total*18/100))}</button>
 </div>
     </div>
   )

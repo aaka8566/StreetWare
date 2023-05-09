@@ -1,8 +1,8 @@
 import React from 'react'
 import "../CartComponents/cart.css"
-
-function NetBanking({total}) {
-
+import {useNavigate} from "react-router-dom"
+function NetBanking({total,setclicked}) {
+const navigate=useNavigate();
   return (
     <div >
 <div className='net'>
@@ -41,7 +41,9 @@ function NetBanking({total}) {
 </div>
 
 <div className='confirmbutton1'>
-<button>CONFIRM ORDER ₹ {Math.floor(total+(total*18/100)-(total*10)/100)}</button>
+<button onClick={()=>{setclicked(true);setTimeout(() => {
+  navigate("/")
+}, 4500);}}>CONFIRM ORDER ₹ {Math.floor(total+(total*18/100)-(total*10)/100)}</button>
 </div>
     </div>
   )

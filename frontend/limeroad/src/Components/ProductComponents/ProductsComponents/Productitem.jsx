@@ -9,7 +9,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import { addtocartdata } from '../../../Redux/ProductReducer/ProductAction';
 import { useModal } from './Drawer';
 
-export const Productitem = ({el,data,setdata}) => {
+export const Productitem = ({el,data,setdata,onOpen,setsingleproduct}) => {
     const [loading,setload]=React.useState(false);
     
     const {isadded}=useSelector((store)=>store.ProductReducer);
@@ -18,22 +18,16 @@ export const Productitem = ({el,data,setdata}) => {
     const toast = useToast()
 
   return (
-    <VStack w={'100%'}>
-
-{/* <>
-
-    </> */}
+    <VStack onClick={()=>{setsingleproduct(el);onOpen()}} w={'100%'}>
 
 
-
-
-<Box w={'100%'} border={'1px solid green'} position={'relative'}>
+<Box w={'100%'} border={'px solid green'} position={'relative'} >
 
     <Image h={'100%'} border={'1px solid pink'} w={'100%'} src={el.image} alt='memo'/>
     <Text fontFamily={'"Roboto",Roboto,"Helvetica",Helvetica,"Arial",Arial,sans-serif'} w={'80%'}  position={'absolute'} opacity={'0.9'} textAlign={'left'} backgroundColor={'rgb(249,249,248)' } borderRadius={'0.5rem'}  left={'0rem'} top={'16rem'} padding={"0.3rem"}>{el.title}</Text>
 </Box>
 <VStack w={'100%'}  gap={'0.3rem'}>
-<HStack w={'100%'} border={'1px solid green'} display={'flex'} justifyContent={'space-evenly'}><HStack>
+<HStack w={'100%'} border={'px solid green'} display={'flex'} justifyContent={'space-evenly'}><HStack>
 <Box fontFamily={'"Roboto",Roboto,"Helvetica",Helvetica,"Arial",Arial,sans-serif'}>₹{el.price}</Box>
 <Box fontFamily={'"Roboto",Roboto,"Helvetica",Helvetica,"Arial",Arial,sans-serif'} color={'grey'} textDecoration={'line-through'}>₹{el.before_disc}</Box>
 <Box fontFamily={'"Roboto",Roboto,"Helvetica",Helvetica,"Arial",Arial,sans-serif'} color={'green'}>{el.offer_percent}% off</Box>
@@ -70,8 +64,8 @@ w={'80%'}
     // colorScheme='rgb(153,204,51)'
      backgroundColor={' rgb(153,204,51)'}
      variant='solid' 
-    border={'2px solid green'}
-    onClick={()=>{setload(true);dispatch(addtocartdata({el})).then((res)=>setload(false))
+    border={'px solid green'}
+    onClick={()=>{setload(true);dispatch(addtocartdata(el)).then((res)=>setload(false))
     toast({
       title: 'Cart',
       description: "Product Adding To Cart",
