@@ -19,10 +19,10 @@ import AdminLogin from '../Pages/Admin/AdminLogin';
 import AdminAddProducts from '../Pages/Admin/AdminAddProducts';
 import AdminEditProduct from '../Pages/Admin/AdminEditProduct';
 import { PrivateRoute } from './PrivateRoute';
-import AdminLogin from "../Pages/Admin/AdminLogin"
 
-import { PrivateRoute } from './PrivateRoute';
-import AdminLogin from "../Pages/Admin/AdminLogin"
+
+
+
 
 export const AllRoutes = () => {
   return (
