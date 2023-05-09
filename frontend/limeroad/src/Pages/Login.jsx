@@ -12,14 +12,15 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { login } from "../Redux/AuthReducer/AuthAction";
+import { useDispatch,useSelector } from "react-redux";
+import { login, logout } from "../Redux/AuthReducer/AuthAction";
 import { Link,useNavigate,useLocation } from "react-router-dom";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const dispatch = useDispatch();
+  const {isAuth,token}=useSelector((store)=>store.AuthReducer);
 const navigate=useNavigate();
 const location=useLocation();
   const hadleSubmit = (e) => {
@@ -41,7 +42,8 @@ const location=useLocation();
     setEmail("");
     setPass("");
   };
-console.log(location)
+
+
   return (
     <div>
       <Container maxW="5xl" p={{ base: 5, md: 10 }}>

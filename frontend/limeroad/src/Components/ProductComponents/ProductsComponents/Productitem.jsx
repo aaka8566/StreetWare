@@ -1,76 +1,28 @@
 import React from 'react'
-import {Box,Flex,Stack,Image,HStack,VStack, Text, Button,Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  useDisclosure,} from "@chakra-ui/react";
+import {Box,Flex,Stack,Image,HStack,VStack, Text, Button,
+  useDisclosure,
+  useToast,} from "@chakra-ui/react";
 import styles from "./Styles/ProductItem.module.css";
 import {AiFillHeart} from "react-icons/ai";
 import {BsWhatsapp} from "react-icons/bs"
 import { useDispatch,useSelector } from 'react-redux';
 import { addtocartdata } from '../../../Redux/ProductReducer/ProductAction';
+import { useModal } from './Drawer';
 
-
-export const Productitem = ({el,wish,setwish}) => {
+export const Productitem = ({el,data,setdata}) => {
     const [loading,setload]=React.useState(false);
     
     const {isadded}=useSelector((store)=>store.ProductReducer);
     const dispatch=useDispatch();
     const [size, setSize] = React.useState('');
-   
-    const { isOpen, onOpen:onOpen1, onClose } = useDisclosure();
-    console.log(wish,"wish");
-    const handleremove=(a)=>{
-      dispatch(addtocartdata({a})).then((res)=>{
-        let arr=wish.filter((el)=>{
-          if(el._id!==a._id){
-            return el
-          };
-         
-        })
-        setwish(arr);        
-        ;setload(false)})
-    }
+    const toast = useToast()
+
   return (
     <VStack w={'100%'}>
 
-<>
-<Drawer onClose={onClose} isOpen={isOpen} size={'md'}>
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
+{/* <>
 
-          <DrawerHeader>Wishlist</DrawerHeader>
-          <DrawerBody>
-          <Box>
-            {wish.map((el)=>(
-              <Flex gap={'0.2rem'} borderBottom={'4px solid green'} >
-              <Box w={'20%'}><Image src={el.image} alt="memo"/></Box>
-              <VStack w={'50%'} textAlign={'center'}><Box>{el.title}</Box>
-              <Box fontFamily={'"Roboto",Roboto,"Helvetica",Helvetica,"Arial",Arial,sans-serif'}>₹{el.price}</Box>
-              </VStack>
-              <Box w={'25%'}><Button 
-w={'80%'}
-    isLoading={loading}
-    loadingText='Adding'
-    // colorScheme='rgb(153,204,51)'
-     backgroundColor={' rgb(153,204,51)'}
-     variant='solid' 
-    border={'2px solid green'}
-    onClick={()=>{setload(true);handleremove(el);}} 
-  >
-   Add To Cart
-  </Button></Box>
-            </Flex>
-            ))}
-          </Box>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
-    </>
+    </> */}
 
 
 
@@ -88,8 +40,23 @@ w={'80%'}
 </HStack>
 <HStack>
 <Box fontSize={'3xl'} _hover={{cursor:"pointer"}} color={'pink.300'} onClick={()=>{
-  setwish((prev)=>[...prev,el]);
-  onOpen1();
+  let arr=[...data];let flag=false;
+let arr1=arr.map((ell)=>{
+  if(ell._id===el._id){
+    flag=true;
+return{...el,Quantity:Number(ell.Quantity)+1}
+  }
+  return ell;
+})
+if(flag===false){setdata([...data,el])}
+else{setdata(arr1)}
+toast({
+  title: 'Wishlist',
+  description: "Product Addded To Wishlist",
+  status: 'success',
+  duration: 9000,
+  isClosable: true,
+})
   }}><AiFillHeart/></Box>
 <Box fontSize={'2xl'}  color={'green.700'}><BsWhatsapp/></Box>
 </HStack>
@@ -104,7 +71,15 @@ w={'80%'}
      backgroundColor={' rgb(153,204,51)'}
      variant='solid' 
     border={'2px solid green'}
-    onClick={()=>{setload(true);dispatch(addtocartdata({el})).then((res)=>setload(false))}} 
+    onClick={()=>{setload(true);dispatch(addtocartdata({el})).then((res)=>setload(false))
+    toast({
+      title: 'Cart',
+      description: "Product Adding To Cart",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
+  }} 
   >
    Add To Cart
   </Button>

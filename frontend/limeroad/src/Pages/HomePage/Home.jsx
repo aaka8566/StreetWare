@@ -6,10 +6,14 @@ import Footer from '../../Components/ProductComponents/HomeComponents/Footer'
 
 import { Men } from './MensPage'
 import { Women } from './WomenPage'
+import { useDispatch } from 'react-redux'
+import { logout } from '../../Redux/AuthReducer/AuthAction'
 
 export const Home = () => {
+  const dispatch=useDispatch();
   return (
     <Box width="95%" margin="auto">
+      <button onClick={()=>dispatch(logout())}>logout</button>
       <Box width="70%" margin="auto">     
       <Flex margin="1%">
           <Link to="/men">Men  |  </Link>
