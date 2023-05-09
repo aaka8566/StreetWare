@@ -20,7 +20,7 @@ export const AllRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        {/* <Route path="/" element={<Home />}></Route> */}
         <Route path="/products" element={<Products />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/cart" element={
@@ -32,6 +32,7 @@ export const AllRoutes = () => {
         <Route path="/adminhome" element={<AdminHome />}></Route>
         <Route path="/adminproducts" element={<AdminProducts />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/" element={<Men />}></Route>
         <Route path="/men" element={<Men />}></Route>
         <Route path="/adminlogin" element={<AdminLogin/>}></Route>
         <Route path="/women" element={<Women/>}></Route>

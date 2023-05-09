@@ -14,7 +14,7 @@ import {Sidebar} from "../Components/ProductComponents/ProductsComponents/Sideba
 import styles from "../Components/ProductComponents/ProductsComponents/Styles/ProductPage.module.css"
 import { Pagination } from '../Components/ProductComponents/ProductsComponents/Pagination';
 import {useSearchParams,useLocation} from "react-router-dom";
-
+import { DrawerdataContext } from '../Components/ProductComponents/ProductsComponents/Drawer';
 
 export const Products = () => {
   const [page,setpage]=React.useState("1");
@@ -23,10 +23,11 @@ export const Products = () => {
   const [limit,setlimit]=React.useState(6);
   const location=useLocation();
   const [wish,setwish]=React.useState([]);
+ 
 
 const {products,isloading}=useSelector((store)=>store.ProductReducer);
 const dispatch=useDispatch();
-
+const {data,setdata}=React.useContext(DrawerdataContext);
 
 React.useEffect(()=>{
 let obj={};
@@ -78,7 +79,7 @@ console.log(obj,"obj1")
      
         (products.map((el,i)=>(
           <GridItem  key={i} borderRadius={'0.5rem'} boxShadow={'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'}>
-            <Productitem   el={el} wish={wish} setwish={setwish}/>
+            <Productitem   el={el} data={data} setdata={setdata}/>
           </GridItem>
         )))
      
