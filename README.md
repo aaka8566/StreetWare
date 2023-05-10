@@ -137,10 +137,10 @@
  </tr>
 </table>
 
-## Note
+## Note [Admin Login]
 Admin Login Details: 
-## UserName : admin@123
-## Password : admin
+ UserName : admin@123
+ Password : admin
 
 # Prerequisites :
 
