@@ -69,25 +69,93 @@
 <h1>Glimpses of our Project</h1>
 
 ## HomePage
-<div style="display: flex;>
-<img src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Homepage1.png?raw=true" alt="memo"/>
-<img src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Homepage2.png?raw=true" alt="memo"/>
-</div>
+<table>
+ <tr>
+  <td>
+<img  src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Homepage1.png?raw=true" alt="memo"/>
+</td>
+  <td>
+  <img  src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Homepage2.png?raw=true" alt="memo"/>
+</td>
+ </tr>
+</table>
+
 ## Products Page
-<img src="" alt="memo"/>
-<img src="" alt="memo"/>
+
+<table>
+ <tr>
+  <td>
+<img  src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Pr1.png?raw=true" alt="memo"/>
+</td>
+  <td>
+  <img  src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Pr2.png?raw=true" alt="memo"/>
+</td>
+ </tr>
+</table>
+
 ## Sign Up and Login Page
-<img src="" alt="memo"/>
-<img src="" alt="memo"/>
+<table>
+ <tr>
+  <td>
+<img  src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Signup.png?raw=true" alt="memo"/>
+</td>
+  <td>
+  <img  src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Login.png?raw=true" alt="memo"/>
+</td>
+ </tr>
+</table>
+
 ## Cart Page
-<img src="" alt="memo"/>
+<table>
+ <tr>
+  <td>
+<img  src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Cart.png?raw=true" alt="memo"/>
+</td>
+
+ </tr>
+</table>
 
 ## Payments Page
-<img src="" alt="memo"/>
+<table>
+ <tr>
+  <td>
+<img  src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Payments.png?raw=true" alt="memo"/>
+</td>
+
+ </tr>
+</table>
 
 ## Admin Login and Admin Page
-<img src="" alt="memo"/>
-<img src="" alt="memo"/>
+<table>
+ <tr>
+  <td>
+<img  src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Adlogin.png?raw=true" alt="memo"/>
+</td>
+  <td>
+  <img  src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Adhome.png?raw=true" alt="memo"/>
+</td>
+ </tr>
+</table>
+
+## Note
+Admin Login Details: 
+## UserName : admin@123
+## Password : admin
+
+# Prerequisites :
+
+- Node.js
+- npm
+
+# Installing :
+
+1. Clone the repository to your local machine
+2. Navigate to the project directory
+3. Run `npm install` to install the required dependencies
+4. Run `npm start` to start the development server
+
+<br/><br/>
+ 
 
 ## Our Team  :-
 
