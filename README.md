@@ -66,7 +66,7 @@
 - Admin Login via backend server (restricted route).
 - Admin Panel functionality (fore Editing,Adding and Deleting Products).
 
-<h1 color="green">Glimpses of our Project</h1>
+<h1 style="color:blue;">Glimpses of our Project</h1>
 
 
 
