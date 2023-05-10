@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector,useDispatch} from "react-redux";
-import { getproductdata } from '../Redux/ProductReducer/ProductAction';
+import { addtocartdata, getproductdata } from '../Redux/ProductReducer/ProductAction';
 import { Productitem } from '../Components/ProductComponents/ProductsComponents/Productitem';
 import { Box,Button,Flex,Grid, GridItem, Text,  Drawer,
   DrawerBody,
@@ -11,7 +11,8 @@ import { Box,Button,Flex,Grid, GridItem, Text,  Drawer,
   DrawerCloseButton,
   useDisclosure,
   HStack,
-  Image, } from '@chakra-ui/react';
+  Image,
+  Stack, useToast} from '@chakra-ui/react';
 import {Sidebar} from "../Components/ProductComponents/ProductsComponents/Sidebar";
 import styles from "../Components/ProductComponents/ProductsComponents/Styles/ProductPage.module.css"
 import { Pagination } from '../Components/ProductComponents/ProductsComponents/Pagination';
@@ -19,6 +20,7 @@ import {useSearchParams,useLocation} from "react-router-dom";
 import { DrawerdataContext } from '../Components/ProductComponents/ProductsComponents/Drawer';
 import { ExternalLinkIcon, StarIcon } from '@chakra-ui/icons';
 import { BsWhatsapp } from 'react-icons/bs';
+import { AiFillHeart } from 'react-icons/ai';
 
 export const Products = () => {
   const [page,setpage]=React.useState("1");
@@ -29,10 +31,12 @@ export const Products = () => {
   const [wish,setwish]=React.useState([]);
  const {isOpen,onOpen,onClose}=useDisclosure();
 const [singleproduct,setsingleproduct]=React.useState({});
-
-const {products,isloading}=useSelector((store)=>store.ProductReducer);
+const toast=useToast();
+const {products,isloading,isadded}=useSelector((store)=>store.ProductReducer);
 const dispatch=useDispatch();
 const {data,setdata}=React.useContext(DrawerdataContext);
+
+const [loading,setloading]=React.useState(false);
 
 React.useEffect(()=>{
 let obj={};
@@ -77,41 +81,91 @@ console.log(obj,"obj1")
         <DrawerOverlay />
         <DrawerContent backgroundColor={'rgb(237,237,237)'}>
           <DrawerCloseButton />
-          <DrawerHeader>{singleproduct.type}</DrawerHeader>
+          <DrawerHeader ><Text w={'80%'}  paddingLeft={'4rem'}  fontSize={'3xl'} color={'green'}>{singleproduct.type}</Text></DrawerHeader>
           <DrawerBody>
            <Box>
-<HStack w={'85%'} margin={'auto'} gap={'4rem'}>
-<Box w={'40%'} backgroundColor={'white'}><Image margin={'auto'} w={'80%'} src={singleproduct.image}/></Box>
-<Box w={'50%'} backgroundColor={'white'} margin={'auto'}>
+          
+<Grid  templateColumns={"repeat(2,1fr)"} w={'90%'} margin={'auto'}>
+<GridItem
+
+transformOrigin={"center"}
+border={'px solid green'}
+w={'90%'} backgroundColor={'white'}><Image paddingTop={'2rem'} border={'px solid green'}  margin={'auto'} w={'70%'} src={singleproduct.image} /></GridItem>
+<GridItem paddingTop={'1rem'} paddingLeft={'1rem'} w={'95%'} backgroundColor={'white'} margin={'auto'} border={'px solid brown'} >
+<Stack gap={'0.3rem'}>
   <Box><Text>{singleproduct.title}</Text></Box>
   <Box><Text>{singleproduct.model}</Text></Box>
   <Box><Text><StarIcon/><StarIcon/><StarIcon/><StarIcon/></Text></Box>
-  <HStack><ExternalLinkIcon/> <BsWhatsapp/></HStack>
+  <HStack fontSize={'2xl'}><ExternalLinkIcon/> <BsWhatsapp/></HStack>
   <Box>Select Size</Box>
   <HStack>
-    <Button color={'black'} _hover={{backgroundColor:"black",color:"white"}}>S</Button>
-    <Button color={'black'} _hover={{backgroundColor:"black",color:"white"}}>M</Button>
-    <Button color={'black'} _hover={{backgroundColor:"black",color:"white"}}>L</Button>
-    <Button color={'black'} _hover={{backgroundColor:"black",color:"white"}}>Xl</Button>
-    <Button color={'black'} _hover={{backgroundColor:"black",color:"white"}}>XXL</Button>
+    <Button onClick={(e)=> e.currentTarget.style.border = '3px solid green'} color={'black'} _hover={{backgroundColor:"black",color:"white"}}>S</Button>
+    <Button onClick={(e)=> e.currentTarget.style.border = '3px solid green'} color={'black'} _hover={{backgroundColor:"black",color:"white"}}>M</Button>
+    <Button onClick={(e)=> e.currentTarget.style.border = '3px solid green'} color={'black'} _hover={{backgroundColor:"black",color:"white"}}>L</Button>
+    <Button onClick={(e)=> e.currentTarget.style.border = '3px solid green'} color={'black'} _hover={{backgroundColor:"black",color:"white"}}>Xl</Button>
+    <Button onClick={(e)=> e.currentTarget.style.border = '3px solid green'} color={'black'} _hover={{backgroundColor:"black",color:"white"}}>XXL</Button>
   </HStack>
   <Box>Select Colour</Box>
   <HStack>
-    <Button backgroundColor={'green '} borderRadius={'3rem'}></Button>
-    <Button backgroundColor={'blue'} borderRadius={'3rem'}></Button>
-    <Button backgroundColor={'pink'} borderRadius={'3rem'}></Button>
-    <Button backgroundColor={'grey'} borderRadius={'3rem'}></Button>
-    <Button backgroundColor={'red'} borderRadius={'3rem'}></Button>
+    <Button onClick={(e)=> e.currentTarget.style.border = '3px solid green'} backgroundColor={'green '} borderRadius={'3rem'}></Button >
+    <Button onClick={(e)=> e.currentTarget.style.border = '3px solid green'} backgroundColor={'blue'} borderRadius={'3rem'}></Button >
+    <Button onClick={(e)=> e.currentTarget.style.border = '3px solid green'} backgroundColor={'pink'} borderRadius={'3rem'}></Button >
+    <Button onClick={(e)=> e.currentTarget.style.border = '3px solid green'} backgroundColor={'grey'} borderRadius={'3rem'}></Button >
+    <Button onClick={(e)=> e.currentTarget.style.border = '3px solid green'} backgroundColor={'red'} borderRadius={'3rem'}></Button>
   </HStack>
   <Box><Text>M.R.P : <s> ₹{singleproduct.before_disc}</s></Text></Box>
-  <Box><Text color={'pink.800'}>Price :  ₹{singleproduct.price}</Text></Box>
-  <Box><Text color={'green'}>You Save :  {singleproduct.offer_percent}%</Text></Box>
+  <Flex w={'70%'} justifyContent={'space-between'}><Box><Text color={'pink.800'}>Price :  ₹{singleproduct.price}</Text></Box>
+  <Box w={'55%'}>
+  <Text  color={'green'}>OFFER</Text>
+  </Box>
+  </Flex>
+  <Flex w={'70%'} justifyContent={'space-between'}><Box><Text color={'green'}>You Save :  {singleproduct.offer_percent}%</Text></Box>
+  <Box > <Text color={'green'}>Pay Online & Get Flat 10% Off</Text></Box>
+  </Flex>
+  <Box><Text color={'grey'}>M.R.P. inclusive of all taxes</Text></Box>
+  <Flex gap={'1rem'} border={'px solid brown'}  w={'100%'}><Button m={'auto'} backgroundColor={'rgb(153,204,51)'} fontSize={'xl'}
+  onClick={()=>{
+    let arr=[...data];let flag=false;
+  let arr1=arr.map((ell)=>{
+    if(ell._id===singleproduct._id){
+      flag=true;
+  return{...singleproduct,Quantity:Number(ell.Quantity)+1}
+    }
+    return ell;
+  })
+  if(flag===false){setdata([...data,singleproduct])}
+  else{setdata(arr1)}
+  toast({
+    title: 'Wishlist',
+    description: "Product Addded To Wishlist",
+    status: 'success',
+    duration: 9000,
+    isClosable: true,
+  })
+    }}
+  ><AiFillHeart/></Button>
+  <Button m={'auto'} w={'80%'} backgroundColor={'rgb(153,204,51)'} 
+    isLoading={loading}
+     loadingText='Adding'
+      variant='solid' 
+     border={'px solid green'}
+     onClick={(e)=>{setloading(true);dispatch(addtocartdata(singleproduct)).then((res)=>setloading(false))
+     toast({
+       title: 'Cart',
+       description: "Product Adding To Cart",
+       status: 'success',
+       duration: 6000,
+       isClosable: true,
+     })
+   }} 
+  >Add To Cart</Button>
+  </Flex>
   <Box></Box>
   <Box></Box>
-  <Box></Box>
-  <Box></Box>
-</Box>
-</HStack>
+  </Stack>
+</GridItem>
+</Grid>
+
            </Box>
           </DrawerBody>
         </DrawerContent>
