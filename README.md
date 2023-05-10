@@ -66,3 +66,18 @@
 - Admin Login via backend server (restricted route).
 - Admin Panel functionality (fore Editing,Adding and Deleting Products).
 
+<h1 color="green">Glimpses of our Project</h1>
+
+
+
+## Our Team  :-
+
+<ul>
+<li><a href="https://github.com/aaka8566"/>Aakash Chakravarty [Team Lead]</li>
+ <li><a href="https://github.com/Suraj121704c"/>Suraj Kumar</li>
+ <li><a href="https://github.com/vidhi86"/>Vidhi Sharma</li>
+ <li><a href="https://github.com/Raj9457"/>Rajat Bisht</li>
+ <li><a href="https://github.com/Sudip-C"/>Sudip Chowdhary</li>
+</ul>
+
+<h1 align="center">✨Thank You✨</h1>
