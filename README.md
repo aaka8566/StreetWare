@@ -164,7 +164,7 @@ Admin Login Details:
 
 <ul>
 <li><a href="https://github.com/aaka8566"/>Aakash Chakravarty [Team Lead]</li>
- <li><a href="https://github.com/Suraj121704c"/>Suraj Kumar</li>
+ <li><a href="https://github.com/Suraj121704c"/>Suraj Singh</li>
  <li><a href="https://github.com/vidhi86"/>Vidhi Sharma</li>
  <li><a href="https://github.com/Raj9457"/>Rajat Bisht</li>
  <li><a href="https://github.com/Sudip-C"/>Sudip Chowdhary</li>
