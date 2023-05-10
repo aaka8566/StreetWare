@@ -66,9 +66,26 @@
 - Admin Login via backend server (restricted route).
 - Admin Panel functionality (fore Editing,Adding and Deleting Products).
 
-<h1 style="color:blue;">Glimpses of our Project</h1>
+<h1>Glimpses of our Project</h1>
 
+## HomePage
+<div display="flex"><img src="" alt="memo"/>
+<img src="" alt="memo"/></div>
+## Products Page
+<img src="" alt="memo"/>
+<img src="" alt="memo"/>
+## Sign Up and Login Page
+<img src="" alt="memo"/>
+<img src="" alt="memo"/>
+## Cart Page
+<img src="" alt="memo"/>
 
+## Payments Page
+<img src="" alt="memo"/>
+
+## Admin Login and Admin Page
+<img src="" alt="memo"/>
+<img src="" alt="memo"/>
 
 ## Our Team  :-
 
