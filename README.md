@@ -139,6 +139,7 @@
 
 ## Note [Admin Login]
 Admin Login Details: 
+ <br/>
  UserName : admin@123
  <br/>
  Password : admin
