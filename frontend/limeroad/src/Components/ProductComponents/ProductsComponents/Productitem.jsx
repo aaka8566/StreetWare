@@ -7,7 +7,7 @@ import {AiFillHeart} from "react-icons/ai";
 import {BsWhatsapp} from "react-icons/bs"
 import { useDispatch,useSelector } from 'react-redux';
 import { addtocartdata } from '../../../Redux/ProductReducer/ProductAction';
-import { useModal } from './Drawer';
+
 
 export const Productitem = ({el,data,setdata,onOpen,setsingleproduct}) => {
     const [loading,setload]=React.useState(false);
@@ -16,14 +16,14 @@ export const Productitem = ({el,data,setdata,onOpen,setsingleproduct}) => {
     const dispatch=useDispatch();
     const [size, setSize] = React.useState('');
     const toast = useToast()
-    // onClick={()=>{setsingleproduct(el);onOpen()}}
+    
   return (
     <VStack  w={'100%'}>
 
 
 <Box w={'100%'} border={'px solid green'} position={'relative'} >
 
-    <Image h={'100%'} border={'1px solid pink'} w={'100%'} src={el.image} alt='memo'/>
+    <Image onClick={()=>{setsingleproduct(el);onOpen()}} h={'100%'} border={'1px solid pink'} w={'100%'} src={el.image} alt='memo'/>
     <Text fontFamily={'"Roboto",Roboto,"Helvetica",Helvetica,"Arial",Arial,sans-serif'} w={'80%'}  position={'absolute'} opacity={'0.9'} textAlign={'left'} backgroundColor={'rgb(249,249,248)' } borderRadius={'0.5rem'}  left={'0rem'} top={'16rem'} padding={"0.3rem"}>{el.title}</Text>
 </Box>
 <VStack w={'100%'}  gap={'0.3rem'}>
