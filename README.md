@@ -69,7 +69,7 @@
 <h1>Glimpses of our Project</h1>
 
 ## HomePage
-<div display="flex"><img src="" alt="memo"/>
+<div style="display: flex;>
 <img src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Homepage1.png?raw=true" alt="memo"/>
 <img src="https://github.com/aaka8566/permissible-rate-8040/blob/master/GitImages/Homepage2.png?raw=true" alt="memo"/>
 </div>
