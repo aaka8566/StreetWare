@@ -53,3 +53,16 @@
 </p>
 
 <br/>
+
+## Features
+
+- Account Registration and Login Functionality [Using Express.js ].
+- -Passowrd hashing and encryption (USing JWT and bcrypt).
+- Filtering functionality on the basis of type,brand ,discount and price.
+- Wishlist and adding product to cart directly from wishlist.
+- Cart for adding products and increasing quantity .
+- Payment via different modes and ordering functionality
+- Order Details and cart as per the logged in user.
+- Admin Login via backend server (restricted route).
+- Admin Panel functionality (fore Editing,Adding and Deleting Products).
+
