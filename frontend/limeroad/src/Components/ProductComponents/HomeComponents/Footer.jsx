@@ -18,6 +18,7 @@ import {
   const Logo = (props) => {
     return (
       <svg
+      
         height={32}
         viewBox="0 0 120 28"
         xmlns="http://www.w3.org/2000/svg"
@@ -72,6 +73,7 @@ import {
   export default function Footer() {
     return (
       <Box
+      marginTop={'3rem'}
         bg={useColorModeValue('gray.50', 'gray.900')}
         color={useColorModeValue('gray.700', 'gray.200')}>
         <Container as={Stack} maxW={'6xl'} py={10}>
