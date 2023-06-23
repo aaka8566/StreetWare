@@ -54,22 +54,63 @@ ProductRouter.get("/", async (req, res) => {
     filter.title = { $regex: req.query.title, $options: "i" };
   }
   if (req.query.brand) {
-    filter.brand = { $eq: req.query.brand };
+    filter.brand = { $in: req.query.brand };
   }
   if (req.query.gender) {
-    filter.gender = { $eq: req.query.gender };
+    filter.gender = { $in: req.query.gender };
   }
   if (req.query.type) {
-    filter.type = { $eq: req.query.type };
+    filter.type = { $in: req.query.type };
   }
   if (req.query.model) {
-    filter.model = { $eq: req.query.model };
+    filter.model = { $in: req.query.model };
   }
   if (req.query.size) {
-    filter.size = { $eq: req.query.size };
+    filter.size = { $in: req.query.size };
   }
-  const product = await ProductModel.find(filter);
-  res.send(product);
+  
+  if (req.query.s) {
+      if (req.query.s === "asc") {
+        product = await ProductModel.find(filter).sort({ price: 1 });
+      } else if (req.query.s === "desc") {
+        product = await ProductModel.find(filter).sort({ price: -1 });
+      } else if (req.query.s === "") {
+        product = await ProductModel.find(filter);
+      }
+      res.send(product);
+      return ;
+  }
+
+  if(req.query.p) {
+    if (req.query.p === "asc") {
+      product = await ProductModel.find(filter).sort({ offer_percent: 1 });
+    } else if (req.query.p === "desc") {
+      product = await ProductModel.find(filter).sort({ offer_percent: -1 });
+    } else if (req.query.p === "") {
+      product = await ProductModel.find(filter);
+    }
+    res.send(product);
+    return ;
+  }
+
+  const pageNumber = parseInt(req.query.page) || 1;
+  const pageSize = parseInt(req.query.limit) || 10;
+  const skip = (pageNumber - 1) * pageSize;
+
+  try {
+    const count = await ProductModel.countDocuments(filter);
+    const product = await ProductModel.find(filter).skip(skip).limit(pageSize);
+
+    res.send({
+      totalCount: count,
+      pageSize,
+      currentPage: pageNumber,
+      totalPages: Math.ceil(count / pageSize),
+      product,
+    });
+  } catch (err) {
+    res.send("Something went wrong...");
+  }
 });
 
 /**
